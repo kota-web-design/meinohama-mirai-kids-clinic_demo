@@ -873,14 +873,15 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 
 @media (max-width: 430px) {
   #menuButton {
-    right: auto !important;
-    left: 320px !important;
+    right: 14px !important;
+    left: auto !important;
   }
 }
 
 @media (max-width: 360px) {
   #menuButton {
-    left: 264px !important;
+    right: 12px !important;
+    left: auto !important;
   }
 }
 
@@ -889,7 +890,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
     display: grid !important;
     position: fixed !important;
     top: 15px !important;
-    left: 320px !important;
+    right: 14px !important;
+    left: auto !important;
     width: 42px !important;
     height: 42px !important;
     place-content: center !important;
@@ -1208,6 +1210,21 @@ td {
   font-size: 1rem;
 }
 
+.service-card,
+.sub-service-card {
+  padding-bottom: 56px !important;
+}
+
+.service-card i,
+.sub-service-card i {
+  bottom: 22px !important;
+}
+
+.service-card p,
+.sub-service-card p {
+  margin-bottom: 10px;
+}
+
 .feature-card:nth-child(odd) > div:last-child {
   padding-left: 44px;
 }
@@ -1418,10 +1435,12 @@ td {
 
 .page-vaccination #prepare .content-card {
   display: flex;
-  min-height: 300px;
+  min-height: 240px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 36px;
+  padding-bottom: 36px;
   text-align: center;
 }
 
@@ -1635,5 +1654,613 @@ td {
   .page-news .news-article {
     min-height: 0;
     padding: 28px 24px;
+  }
+}
+
+/* Refinement pass 3: news archive, compact vaccine cards, SP UX */
+.page-news .news-archive-section {
+  padding-top: 78px;
+  padding-bottom: 86px;
+}
+
+.page-news .archive-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: -12px auto 34px;
+}
+
+.page-news .archive-filters a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 18px;
+  color: var(--muted);
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(85,70,47,.04);
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.page-news .archive-filters a.is-active {
+  color: #fff;
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.news-archive-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 30px;
+  align-items: start;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.post-list {
+  display: grid;
+  gap: 16px;
+}
+
+.post-card {
+  overflow: hidden;
+  background: rgba(255,255,255,.96);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 13px 34px rgba(85,70,47,.055);
+  scroll-margin-top: 110px;
+  transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+
+.post-card:hover {
+  border-color: #efcfa3;
+  box-shadow: 0 18px 40px rgba(85,70,47,.09);
+  transform: translateY(-3px);
+}
+
+.post-card-link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 138px 1fr 38px;
+  gap: 20px;
+  align-items: center;
+  min-height: 132px;
+  padding: 26px 30px;
+}
+
+.post-card-featured .post-card-link {
+  min-height: 150px;
+  background: linear-gradient(135deg, #fff, #fff9ef);
+}
+
+.post-meta {
+  display: grid;
+  gap: 10px;
+  align-content: center;
+}
+
+.post-meta time {
+  color: #756b61;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.post-meta .tag {
+  justify-self: start;
+  padding: 4px 12px;
+  font-size: .68rem;
+  font-weight: 800;
+}
+
+.post-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+  line-height: 1.55;
+  letter-spacing: .03em;
+}
+
+.post-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .84rem;
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+.post-arrow {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-content: center;
+  color: #fff;
+  background: var(--orange);
+  border-radius: 50%;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-text-stroke: .45px currentColor;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.pagination a,
+.pagination span {
+  display: grid;
+  min-width: 38px;
+  height: 38px;
+  place-content: center;
+  padding: 0 13px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.pagination span {
+  color: #fff;
+  background: var(--leaf);
+  border-color: var(--leaf);
+}
+
+.pagination-next {
+  min-width: 72px !important;
+}
+
+.archive-sidebar {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 16px;
+}
+
+.side-box {
+  padding: 24px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(85,70,47,.05);
+}
+
+.side-box h3 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.side-box a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  color: var(--muted);
+  border-bottom: 1px solid rgba(233,225,213,.75);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+.side-box a:last-child {
+  border-bottom: 0;
+}
+
+.side-box p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.85;
+}
+
+.side-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.side-dot.orange { background: var(--orange); }
+.side-dot.blue { background: var(--sky-deep); }
+.side-dot.green { background: var(--leaf); }
+
+.page-vaccination #prepare .two-column {
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+.page-vaccination #prepare .content-card {
+  min-height: 230px;
+}
+
+@media (max-width: 900px) {
+  .news-archive-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-sidebar {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .side-box-note {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  body {
+    padding-bottom: 74px;
+    font-size: 15px;
+  }
+
+  .site-header {
+    height: 66px;
+  }
+
+  .site-header .header-inner {
+    width: 100%;
+    padding-inline: 14px 70px;
+  }
+
+  .site-header .logo {
+    max-width: 100%;
+    gap: 8px;
+  }
+
+  .site-header .logo-mark {
+    width: 34px;
+  }
+
+  .site-header .logo strong {
+    max-width: none;
+    font-size: .78rem;
+    line-height: 1.25;
+  }
+
+  #menuButton,
+  .mobile-menu-button {
+    right: 14px !important;
+    left: auto !important;
+    top: 12px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .header-actions {
+    right: 14px !important;
+    left: auto !important;
+  }
+
+  .global-nav {
+    inset: 66px 10px auto !important;
+    border: 1px solid rgba(233,225,213,.9);
+    border-radius: 0 0 22px 22px;
+  }
+
+  .global-nav.is-open {
+    max-height: calc(100vh - 80px);
+    padding: 12px 18px 22px;
+  }
+
+  .global-nav a {
+    justify-content: center;
+    padding: 16px 8px;
+    font-size: .9rem;
+    text-align: center;
+  }
+
+  .hero-copy.reveal,
+  .hero-copy.reveal.is-visible {
+    transform: none !important;
+  }
+
+  .hero-copy {
+    top: 11.5%;
+    right: 22px;
+    left: 22px;
+    width: auto;
+    padding: 15px 16px 17px;
+    text-align: center;
+  }
+
+  .hero h1 span {
+    white-space: normal;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.7rem, 7.6vw, 2.08rem);
+  }
+
+  .hero-lead {
+    font-size: .8rem;
+    line-height: 1.8;
+  }
+
+  .section-title,
+  .schedule-title,
+  .news-heading,
+  .sub-heading,
+  .sub-heading.is-left,
+  .intro-copy,
+  .doctor-profile-copy,
+  .access-info,
+  .facility-card div,
+  .content-card,
+  .value-card,
+  .transport-card,
+  .cta-band {
+    text-align: center !important;
+  }
+
+  .sub-heading.is-left h2::after,
+  .schedule-title h2::after {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  .intro-copy h2,
+  .doctor-profile-copy h2,
+  .access-info h3 {
+    font-size: 1.46rem;
+    line-height: 1.55;
+  }
+
+  .intro-copy p,
+  .doctor-profile-copy p,
+  .content-card p,
+  .facility-card p,
+  .access-info dd {
+    line-height: 1.9;
+  }
+
+  .quick-card {
+    min-height: 96px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .quick-card strong {
+    font-size: 1rem;
+  }
+
+  .quick-card > i {
+    width: 32px;
+    height: 32px;
+  }
+
+  .news-box {
+    text-align: center;
+  }
+
+  .news-heading svg {
+    right: 50%;
+    left: auto;
+    transform: translateX(82px);
+  }
+
+  .news-list a {
+    grid-template-columns: 82px 1fr 24px;
+    min-height: 62px;
+    padding: 12px 14px;
+    text-align: left;
+  }
+
+  .schedule-title > p:last-child {
+    text-align: center;
+  }
+
+  .schedule-note {
+    text-align: center;
+  }
+
+  .reservation-card {
+    min-height: 86px;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 22px;
+    text-align: center;
+  }
+
+  .feature-card,
+  .feature-card:nth-child(even) {
+    text-align: center;
+  }
+
+  .feature-card:nth-child(odd) > div:last-child {
+    padding-left: 8px;
+  }
+
+  .feature-number {
+    top: 14px !important;
+    left: 14px !important;
+  }
+
+  .service-grid,
+  .sub-service-grid {
+    gap: 14px;
+  }
+
+  .service-card,
+  .sub-service-card {
+    min-height: 196px;
+    padding: 26px 22px 60px !important;
+    border-radius: 22px;
+  }
+
+  .service-card p,
+  .sub-service-card p {
+    margin-bottom: 16px;
+    line-height: 1.75;
+  }
+
+  .service-card i,
+  .sub-service-card i {
+    bottom: 23px !important;
+    width: 32px;
+    height: 32px;
+  }
+
+  .visit-flow,
+  .belongings,
+  .flow-large li,
+  .detail-panel {
+    text-align: center;
+  }
+
+  .visit-flow li {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 8px;
+    text-align: center;
+  }
+
+  .visit-flow li > span,
+  .visit-flow i,
+  .visit-flow strong,
+  .visit-flow p {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .visit-flow li:not(:last-child)::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .belongings ul,
+  .check-list {
+    display: inline-grid;
+    justify-items: start;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .doctor-profile .credential-tags {
+    justify-content: center;
+  }
+
+  .access-buttons,
+  .cta-actions {
+    justify-content: center;
+  }
+
+  .cta-band {
+    gap: 20px;
+    padding: 32px 22px;
+    border-radius: 26px;
+  }
+
+  .cta-band h2 {
+    font-size: 1.22rem;
+    line-height: 1.55;
+  }
+
+  .cta-actions .button,
+  .mobile-actions a,
+  .mobile-actions button {
+    min-height: 54px;
+    font-size: .92rem;
+  }
+
+  .mobile-actions {
+    height: 74px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    grid-template-columns: 1fr 1.25fr;
+    gap: 8px;
+    background: rgba(255,250,242,.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-actions a,
+  .mobile-actions button {
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(85,70,47,.12);
+  }
+
+  .page-news .news-archive-section {
+    padding-top: 58px;
+    padding-bottom: 64px;
+  }
+
+  .page-news .archive-filters {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: calc(100% + 14px);
+    margin: -6px -14px 24px 0;
+    padding: 0 14px 5px 0;
+  }
+
+  .page-news .archive-filters a {
+    flex: 0 0 auto;
+  }
+
+  .post-list {
+    gap: 14px;
+  }
+
+  .post-card-link {
+    grid-template-columns: 1fr 34px;
+    gap: 12px 14px;
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .post-card-featured .post-card-link {
+    min-height: 0;
+  }
+
+  .post-meta,
+  .post-body {
+    grid-column: 1;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .post-body h3 {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .post-body p {
+    font-size: .8rem;
+    line-height: 1.85;
+  }
+
+  .post-arrow {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    align-self: center;
+    justify-self: end;
+  }
+
+  .pagination {
+    margin-top: 18px;
+  }
+
+  .archive-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .page-vaccination #prepare .two-column {
+    max-width: 100%;
+  }
+
+  .page-vaccination #prepare .content-card {
+    min-height: 0;
+    padding: 30px 24px;
   }
 }
