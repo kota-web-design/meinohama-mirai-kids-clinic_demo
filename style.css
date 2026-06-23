@@ -455,7 +455,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 
 /* Lower pages */
 .global-nav a[aria-current="page"] { color: var(--orange-deep); }
-.global-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.global-nav a[aria-current="page"]::after { width: 100%; transform: translateX(-50%); }
 .sub-main { background: #fffdf9; }
 .page-hero { position: relative; display: grid; min-height: 330px; place-items: center; overflow: hidden; background: linear-gradient(135deg, #fff7e9 0%, #fffdf9 48%, #edf8f8 100%); text-align: center; }
 .page-hero::before, .page-hero::after { content: ""; position: absolute; pointer-events: none; background-repeat: no-repeat; background-size: contain; opacity: .78; mix-blend-mode: multiply; }
@@ -1358,5 +1358,282 @@ td {
     left: calc(52% + 16px);
     max-width: 160px;
     white-space: normal;
+  }
+}
+
+/* Refinement pass 2: navigation, card spacing, news UI */
+.global-nav a[aria-current="page"]::after,
+.global-nav a.is-current::after {
+  left: 50% !important;
+  width: 100% !important;
+  transform: translateX(-50%) !important;
+}
+
+.service-icon {
+  margin-bottom: 18px !important;
+}
+
+.service-card h3 {
+  margin-top: 0;
+}
+
+.sub-service-card > img {
+  margin: 0 auto 20px !important;
+}
+
+.sub-service-card h2,
+.sub-service-card h3 {
+  margin-top: 0;
+}
+
+.page-medical .detail-stack {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.page-medical .detail-panel {
+  grid-template-columns: 92px 1fr;
+  gap: 24px;
+  min-height: 270px;
+  padding: 32px;
+}
+
+.page-medical .detail-panel-icon {
+  width: 92px;
+  height: 92px;
+  padding: 11px;
+}
+
+.page-medical .detail-panel h2 {
+  font-size: 1.28rem;
+}
+
+.page-medical .symptom-list {
+  gap: 7px;
+}
+
+.page-medical .symptom-list li {
+  font-size: .68rem;
+}
+
+.page-vaccination #prepare .content-card {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-vaccination #prepare .check-list {
+  display: inline-grid;
+  justify-items: start;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.page-news .sub-section#list {
+  padding-bottom: 70px;
+}
+
+.page-news .news-page-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1080px;
+}
+
+.page-news .news-page-list a {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr 34px;
+  grid-template-areas:
+    "date tag arrow"
+    "title title arrow";
+  gap: 10px 14px;
+  min-height: 126px;
+  padding: 24px 26px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,250,242,.88)),
+    radial-gradient(circle at 95% 8%, rgba(189,216,120,.18), transparent 38%);
+  border: 1px solid rgba(233,225,213,.95);
+  border-radius: 24px;
+  box-shadow: 0 12px 32px rgba(85,70,47,.055);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.page-news .news-page-list a::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 0;
+  width: 4px;
+  background: var(--leaf);
+  border-radius: 0 99px 99px 0;
+}
+
+.page-news .news-page-list a:nth-child(3n+1)::before {
+  background: var(--orange);
+}
+
+.page-news .news-page-list a:nth-child(3n)::before {
+  background: var(--sky-deep);
+}
+
+.page-news .news-page-list a:hover {
+  border-color: #f2c59d;
+  box-shadow: 0 18px 40px rgba(85,70,47,.09);
+  transform: translateY(-4px);
+}
+
+.page-news .news-page-list time {
+  grid-area: date;
+  align-self: center;
+  color: #756b61;
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.page-news .news-page-list .tag {
+  grid-area: tag;
+  justify-self: start;
+  align-self: center;
+  padding: 4px 12px;
+  font-size: .68rem;
+  font-weight: 800;
+}
+
+.page-news .news-page-list strong {
+  grid-area: title;
+  align-self: end;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.page-news .news-page-list i {
+  grid-area: arrow;
+  display: grid;
+  align-self: center;
+  justify-self: end;
+  width: 34px;
+  height: 34px;
+  place-content: center;
+  color: var(--white);
+  background: var(--orange);
+  border-radius: 50%;
+  font-size: 1.3rem;
+}
+
+.page-news .news-article-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 1080px;
+}
+
+.page-news .news-article {
+  position: relative;
+  min-height: 230px;
+  padding: 34px 36px 36px;
+  overflow: hidden;
+  border-radius: 26px;
+  box-shadow: 0 16px 38px rgba(85,70,47,.06);
+}
+
+.page-news .news-article::after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  bottom: -34px;
+  width: 116px;
+  height: 92px;
+  background: url("icons/deco-bird-perched.jpg") center / contain no-repeat;
+  opacity: .18;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.page-news .news-article:first-child {
+  grid-column: 1 / -1;
+  min-height: 0;
+  background: linear-gradient(135deg, #fff, #fff9ef);
+}
+
+.page-news .news-article header {
+  gap: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.page-news .news-article time {
+  color: #776d62;
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.page-news .news-article h2 {
+  font-size: 1.22rem;
+  line-height: 1.55;
+}
+
+.page-news .news-article p {
+  font-size: .86rem;
+}
+
+@media (max-width: 900px) {
+  .page-medical .detail-stack,
+  .page-news .news-page-list,
+  .page-news .news-article-list {
+    grid-template-columns: 1fr;
+  }
+
+  .page-medical .detail-panel {
+    min-height: 0;
+  }
+
+  .service-icon {
+    margin-bottom: 14px !important;
+  }
+
+  .sub-service-card > img {
+    margin-bottom: 16px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .page-medical .detail-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .page-medical .detail-panel-icon {
+    width: 72px;
+    height: 72px;
+    margin-inline: auto;
+    padding: 8px;
+  }
+
+  .page-medical .symptom-list {
+    justify-content: center;
+  }
+
+  .page-news .news-page-list a {
+    min-height: 108px;
+    padding: 20px 20px 20px 22px;
+  }
+
+  .page-news .news-page-list .tag {
+    display: inline-block;
+  }
+
+  .page-news .news-page-list strong {
+    font-size: .88rem;
+  }
+
+  .page-news .news-article {
+    min-height: 0;
+    padding: 28px 24px;
   }
 }
