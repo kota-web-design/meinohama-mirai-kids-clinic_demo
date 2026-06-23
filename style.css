@@ -1073,3 +1073,290 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
     left: 10%;
   }
 }
+
+/* Requested refinement pass: readability / arrows / maps / lower pages */
+:root {
+  --muted: #5f574f;
+}
+
+body {
+  font-weight: 500;
+}
+
+p,
+li,
+dd,
+td {
+  letter-spacing: .012em;
+}
+
+.hero-lead,
+.section-title > p:last-child,
+.page-hero-lead,
+.sub-heading p:last-child,
+.intro-copy p,
+.value-card p,
+.content-card p,
+.facility-card p,
+.doctor-profile-copy p,
+.detail-panel p,
+.age-card p,
+.flow-large p,
+.faq-answer,
+.access-info dd,
+.transport-card p,
+.cta-band p,
+.news-article p,
+.profile-table td,
+.check-list li {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.quick-card small,
+.news-list a,
+.schedule-note,
+.feature-card p,
+.service-card p,
+.sub-service-card p,
+.visit-flow p,
+.belongings li,
+.credentials li,
+.footer-nav a,
+.footer-clinic p {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.feature-card p,
+.service-card p,
+.sub-service-card p,
+.value-card p,
+.content-card p,
+.facility-card p,
+.detail-panel p,
+.access-info dd,
+.transport-card p,
+.check-list li,
+.profile-table th,
+.profile-table td {
+  font-size: .84rem;
+}
+
+.sub-heading p:last-child,
+.page-hero-lead,
+.intro-copy p,
+.doctor-profile-copy p,
+.cta-band p {
+  font-size: .9rem;
+}
+
+.quick-card small {
+  font-size: .82rem;
+}
+
+.news-list a {
+  font-size: .9rem;
+}
+
+.hero-lead {
+  color: #514941;
+  font-size: .98rem;
+  font-weight: 600;
+}
+
+.page-hero-icon {
+  display: none !important;
+}
+
+.local-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.local-nav a::after {
+  content: "▾";
+  margin-left: 0;
+  color: var(--orange-deep);
+  font-size: .72em;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.quick-card > i,
+.service-card i,
+.sub-service-card i,
+.text-link span,
+.text-button span,
+.news-list i,
+.news-page-list i,
+.page-top span {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  -webkit-text-stroke: .45px currentColor;
+  text-shadow: 0 0 0 currentColor;
+}
+
+.service-card i,
+.sub-service-card i {
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+}
+
+.feature-card:nth-child(odd) > div:last-child {
+  padding-left: 44px;
+}
+
+.feature-card:nth-child(odd) .feature-number {
+  top: 16px;
+  left: 17px;
+}
+
+.map-embed {
+  position: relative;
+  min-height: 290px;
+  overflow: hidden;
+  background: #eaf7fa;
+}
+
+.access-card .map-embed {
+  min-height: 290px;
+}
+
+.access-page-card .map-embed {
+  min-height: 430px;
+}
+
+.map-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(.82) contrast(.95) brightness(1.03);
+}
+
+.map-embed::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 47%;
+  width: 26px;
+  height: 26px;
+  background: var(--orange);
+  border: 4px solid var(--white);
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 8px 18px rgba(229,126,48,.28);
+  pointer-events: none;
+  transform: translate(-50%, -100%) rotate(-45deg);
+}
+
+.map-embed::after {
+  content: "姪浜みらいこどもクリニック";
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 20px);
+  left: calc(47% + 18px);
+  padding: 8px 12px;
+  color: var(--orange-deep);
+  background: rgba(255,255,255,.94);
+  border: 1px solid #f1caa5;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(85,70,47,.08);
+  font-size: .72rem;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.page-about .facility-card {
+  grid-template-columns: 52% 48%;
+}
+
+.page-about .facility-card,
+.page-about .facility-card img {
+  min-height: 236px;
+}
+
+.page-medical .two-column,
+.page-vaccination #checkup .two-column {
+  align-items: start;
+}
+
+.page-medical .two-column .content-card:last-child,
+.page-vaccination #checkup .two-column .content-card:last-child {
+  min-height: 0;
+  padding-bottom: 28px;
+}
+
+.page-medical .sub-service-card i {
+  background: var(--leaf);
+}
+
+@media (max-width: 900px) {
+  .feature-card:nth-child(odd) > div:last-child {
+    padding-left: 42px;
+  }
+
+  .access-page-card .map-embed {
+    min-height: 360px;
+  }
+
+  .page-about .facility-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .feature-card p,
+  .service-card p,
+  .sub-service-card p,
+  .value-card p,
+  .content-card p,
+  .facility-card p,
+  .detail-panel p,
+  .access-info dd,
+  .transport-card p,
+  .check-list li {
+    font-size: .8rem;
+  }
+
+  .sub-heading p:last-child,
+  .page-hero-lead,
+  .intro-copy p,
+  .doctor-profile-copy p,
+  .cta-band p {
+    font-size: .8rem;
+  }
+
+  .quick-card small,
+  .news-list a {
+    font-size: .76rem;
+  }
+
+  .map-embed {
+    min-height: 265px;
+  }
+
+  .access-page-card .map-embed {
+    min-height: 290px;
+  }
+
+  .map-embed::before {
+    left: 52%;
+  }
+
+  .map-embed::after {
+    top: calc(50% - 18px);
+    left: calc(52% + 16px);
+    max-width: 160px;
+    white-space: normal;
+  }
+}
