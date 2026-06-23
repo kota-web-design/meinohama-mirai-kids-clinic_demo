@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="電車のアイコン">
+  <defs>
+    <linearGradient id="trainBody" x1="54" y1="54" x2="202" y2="206" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8f8fb"/>
+      <stop offset="1" stop-color="#8bd0df"/>
+    </linearGradient>
+    <linearGradient id="trainWindow" x1="72" y1="86" x2="184" y2="134" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c7ecf3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="108" fill="#f4fbfd"/>
+  <path d="M78 58h100c16 0 29 13 29 29v61c0 18-15 33-33 33H82c-18 0-33-15-33-33V87c0-16 13-29 29-29Z" fill="url(#trainBody)" stroke="#5db7cb" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M78 82h100c6 0 11 5 11 11v34H67V93c0-6 5-11 11-11Z" fill="url(#trainWindow)" stroke="#70c5d6" stroke-width="5"/>
+  <path d="M128 82v46" fill="none" stroke="#70c5d6" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="87" cy="154" r="10" fill="#fffaf2" stroke="#4daac0" stroke-width="5"/>
+  <circle cx="169" cy="154" r="10" fill="#fffaf2" stroke="#4daac0" stroke-width="5"/>
+  <path d="M99 184 75 213M157 184l24 29M96 213h64" fill="none" stroke="#86a747" stroke-width="8" stroke-linecap="round"/>
+  <path d="M92 46h72" fill="none" stroke="#f6a458" stroke-width="8" stroke-linecap="round"/>
+  <path d="M64 64c6-14 20-23 36-25" fill="none" stroke="#c8dc8c" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+</svg>

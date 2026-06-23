@@ -1,4 +1,4 @@
-const menuButton = document.querySelector("#menuButton");
+const menuButton = document.querySelector(".mobile-menu-button") || document.querySelector("#menuButton");
 const globalNav = document.querySelector("#globalNav");
 const navLinks = document.querySelectorAll("#globalNav a");
 const bookingModal = document.querySelector("#bookingModal");

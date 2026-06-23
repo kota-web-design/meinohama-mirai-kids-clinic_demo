@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="自転車のアイコン">
+  <defs>
+    <linearGradient id="bikeAccent" x1="66" y1="80" x2="188" y2="184" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd8a9"/>
+      <stop offset="1" stop-color="#f59a4b"/>
+    </linearGradient>
+  </defs>
+  <circle cx="128" cy="128" r="108" fill="#fff8ed"/>
+  <circle cx="75" cy="172" r="31" fill="#fffdf8" stroke="#74c2d3" stroke-width="8"/>
+  <circle cx="181" cy="172" r="31" fill="#fffdf8" stroke="#74c2d3" stroke-width="8"/>
+  <path d="M93 116h42l-32 56H75l38-56 23 56h45l-32-56" fill="none" stroke="url(#bikeAccent)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M135 116l13-29M144 87h25M95 116H78" fill="none" stroke="#6f9330" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="135" cy="116" r="7" fill="#fffaf2" stroke="#f59a4b" stroke-width="5"/>
+  <path d="M112 87h29" fill="none" stroke="#6f9330" stroke-width="8" stroke-linecap="round"/>
+  <path d="M66 68c9-8 20-12 33-12" fill="none" stroke="#c8dc8c" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+</svg>
