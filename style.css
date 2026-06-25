@@ -2286,3 +2286,47 @@ td {
 .page-top {
   display: none !important;
 }
+
+/* SP header refinement: keep tap area, remove decorative circle */
+@media (max-width: 900px) {
+  #menuButton,
+  .mobile-menu-button {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 10px !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #menuButton::before,
+  .mobile-menu-button::before {
+    display: none !important;
+  }
+
+  #menuButton span,
+  .mobile-menu-button span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    margin: 4px auto !important;
+    background: var(--ink) !important;
+    border-radius: 999px !important;
+  }
+
+  #menuButton.is-open span:nth-child(1),
+  .mobile-menu-button.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg) !important;
+  }
+
+  #menuButton.is-open span:nth-child(2),
+  .mobile-menu-button.is-open span:nth-child(2) {
+    opacity: 0 !important;
+  }
+
+  #menuButton.is-open span:nth-child(3),
+  .mobile-menu-button.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg) !important;
+  }
+}
