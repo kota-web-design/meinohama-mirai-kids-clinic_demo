@@ -197,8 +197,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 
 .doctor { padding-top: 62px; padding-bottom: 62px; background: rgba(255,255,255,.48); }
 .doctor-card { position: relative; display: grid; grid-template-columns: 32% 1fr 28%; gap: 42px; align-items: center; padding: 0; background: transparent; border-radius: 0; box-shadow: none; }
-.doctor-bird { position: absolute; top: -35px; right: 15px; width: 74px; height: auto; mix-blend-mode: multiply; transform: rotate(4deg); }
-.doctor-photo { min-height: 300px; background-image: url("img/doctor-working.png"), linear-gradient(145deg,#dfeff0,#f0e9dc); background-position: center; background-size: cover; border-radius: 68px 22px 68px 22px; }
+.doctor-bird { display: none; }
+.doctor-photo { position: relative; min-height: 300px; overflow: visible; background-image: url("img/doctor-working.png"), linear-gradient(145deg,#dfeff0,#f0e9dc); background-position: center; background-size: cover; border-radius: 68px 22px 68px 22px; }
+.doctor-photo::after { content: ""; position: absolute; right: -18px; bottom: -24px; width: 78px; aspect-ratio: 3 / 2; background: url("icons/deco-bird-perched.jpg") center / contain no-repeat; mix-blend-mode: multiply; opacity: .9; transform: rotate(4deg); pointer-events: none; }
 .doctor-message h2 { margin: 0 0 14px; font-size: 1.85rem; }.doctor-name { margin: 0 0 16px; font-size: 1.15rem; font-weight: 800; letter-spacing: .12em; }.doctor-name small { margin-right: 15px; color: var(--muted); font-size: .78rem; }.doctor-message > p:not(.section-en):not(.doctor-name) { color: var(--muted); font-size: .86rem; line-height: 1.9; }.text-button { display: inline-flex; gap: 12px; align-items: center; margin-top: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--ink); font-size: .78rem; font-weight: 800; }
 .credentials { padding: 28px; background: #f8f9ef; border: 1px solid #dfe8c6; border-radius: 18px; }.credentials h3 { margin: 0 0 17px; font-size: .94rem; }.credentials ul { margin: 0; padding: 0; list-style: none; }.credentials li { position: relative; margin: 9px 0; padding-left: 16px; color: var(--muted); font-size: .77rem; line-height: 1.65; }.credentials li::before { content: "•"; position: absolute; left: 0; color: var(--leaf-deep); }
 
@@ -273,8 +274,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 
 /* Reference comp refinement */
 .section-en { display: none !important; }
-.page-top { position: absolute; z-index: 3; right: max(24px, calc((100% - var(--container)) / 2)); bottom: 60px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; color: #766f65; background: rgba(255,255,255,.86); border: 1px solid #eadfcd; border-radius: 999px; font-size: .68rem; font-weight: 700; }
-.page-top span { display: grid; place-content: center; width: 20px; height: 20px; color: var(--white); background: var(--leaf); border-radius: 50%; }
 .service-card:nth-child(1), .service-card:nth-child(6) { background: #fbfdf3; border-color: #d9e5b6; }
 .service-card:nth-child(2), .service-card:nth-child(4) { background: var(--ivory); border-color: #efcfa3; }
 .service-card:nth-child(3), .service-card:nth-child(5) { background: #f5fbfd; border-color: #c5e2ea; }
@@ -418,7 +417,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
   .footer-nav a { margin: 4px 0; font-size: .67rem; }
   .footer-booking { display: none; }
   .footer-bottom { padding-top: 12px; padding-bottom: 12px; font-size: .58rem; }
-  .page-top { bottom: 50px; }
 }
 
 @media (max-width: 900px) {
@@ -428,7 +426,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
   .news { padding-top: 46px; padding-bottom: 45px; }
   .features, .medical, .first-visit, .doctor, .access { padding-top: 52px; padding-bottom: 52px; }
   .footer-main { padding-bottom: 45px; }
-  .page-top { right: 18px; bottom: 73px; }
 }
 
 @media (max-width: 620px) {
@@ -450,7 +447,6 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
   .map-art { min-height: 265px; }
   .site-footer { padding-top: 55px; }
   .footer-main { padding-bottom: 50px; }
-  .page-top { bottom: 77px; font-size: .62rem; }
 }
 
 /* Lower pages */
@@ -1194,8 +1190,7 @@ td {
 .text-link span,
 .text-button span,
 .news-list i,
-.news-page-list i,
-.page-top span {
+.news-page-list i {
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 900;
   line-height: 1;
@@ -2283,10 +2278,6 @@ td {
   justify-content: center;
 }
 
-.page-top {
-  display: none !important;
-}
-
 /* SP header refinement: keep tap area, remove decorative circle */
 @media (max-width: 900px) {
   #menuButton,
@@ -2735,6 +2726,12 @@ td {
   .doctor-message .text-button {
     width: fit-content;
     margin-inline: auto;
+  }
+
+  .doctor-photo::after {
+    right: 8px;
+    bottom: -21px;
+    width: 62px;
   }
 
   .info-note,
