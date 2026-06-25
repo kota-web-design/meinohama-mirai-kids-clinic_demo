@@ -2264,3 +2264,25 @@ td {
     padding: 30px 24px;
   }
 }
+
+/* Footer refinement */
+.footer-clinic {
+  text-align: center;
+}
+
+.footer-clinic .footer-logo {
+  justify-content: center;
+}
+
+.footer-clinic p {
+  margin-inline: auto;
+}
+
+.footer-phone {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.page-top {
+  display: none !important;
+}
