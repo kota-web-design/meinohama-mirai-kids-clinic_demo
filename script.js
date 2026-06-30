@@ -1,3 +1,4 @@
+// DOM references
 const menuButton = document.querySelector(".mobile-menu-button") || document.querySelector("#menuButton");
 const globalNav = document.querySelector("#globalNav");
 const navLinks = document.querySelectorAll("#globalNav a");
@@ -7,6 +8,7 @@ const modalClose = document.querySelector("#modalClose");
 const demoReserve = document.querySelector("#demoReserve");
 const siteHeader = document.querySelector(".site-header");
 
+// Portfolio demo notice
 if (siteHeader && !document.querySelector(".demo-notice")) {
   siteHeader.insertAdjacentHTML(
     "afterend",
@@ -14,6 +16,7 @@ if (siteHeader && !document.querySelector(".demo-notice")) {
   );
 }
 
+// Mobile navigation
 function setMenu(open) {
   menuButton?.classList.toggle("is-open", open);
   globalNav?.classList.toggle("is-open", open);
@@ -34,6 +37,7 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 900) setMenu(false);
 });
 
+// Booking demo modal
 bookingButtons.forEach((button) => {
   button.addEventListener("click", () => {
     setMenu(false);
@@ -57,6 +61,7 @@ demoReserve?.addEventListener("click", () => {
   }, 1300);
 });
 
+// Reveal animation
 const revealItems = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
@@ -79,6 +84,7 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
+// Current section highlight for same-page navigation
 const sections = [...document.querySelectorAll("main section[id]")];
 
 if ("IntersectionObserver" in window && sections.length) {
