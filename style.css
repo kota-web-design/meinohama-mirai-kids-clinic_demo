@@ -2802,3 +2802,60 @@ td {
     transform: translateX(-50%);
   }
 }
+
+/* FV quick cards: keep the short descriptions from breaking awkwardly on desktop. */
+@media (min-width: 1181px) {
+  .quick-links.section-shell {
+    width: min(1320px, calc(100% - 48px));
+    gap: 24px;
+  }
+
+  .quick-links .quick-card {
+    gap: 18px;
+    padding-inline: 26px;
+  }
+
+  .quick-links .quick-card > span:nth-child(2) {
+    flex: 1 1 auto;
+  }
+
+  .quick-links .quick-card small {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1080px) and (max-width: 1180px) {
+  .quick-links.section-shell {
+    width: min(100% - 48px, var(--container));
+    gap: 16px;
+  }
+
+  .quick-links .quick-card {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .quick-links .quick-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .quick-links .quick-icon img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .quick-links .quick-card strong {
+    font-size: .96rem;
+  }
+
+  .quick-links .quick-card small {
+    font-size: .75rem;
+    white-space: nowrap;
+  }
+
+  .quick-links .quick-card > i {
+    width: 24px;
+    height: 24px;
+  }
+}
