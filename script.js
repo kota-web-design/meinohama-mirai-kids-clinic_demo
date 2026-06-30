@@ -5,6 +5,14 @@ const bookingModal = document.querySelector("#bookingModal");
 const bookingButtons = document.querySelectorAll(".js-booking");
 const modalClose = document.querySelector("#modalClose");
 const demoReserve = document.querySelector("#demoReserve");
+const siteHeader = document.querySelector(".site-header");
+
+if (siteHeader && !document.querySelector(".demo-notice")) {
+  siteHeader.insertAdjacentHTML(
+    "afterend",
+    '<div class="demo-notice" role="note"><strong>Portfolio Demo</strong><span>このサイトはポートフォリオ用に制作した架空の医療機関デモサイトです。実際の診療・予約は行われません。</span></div>',
+  );
+}
 
 function setMenu(open) {
   menuButton?.classList.toggle("is-open", open);
